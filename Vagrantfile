@@ -20,11 +20,21 @@ install_mono_cmd = 'sudo apt-key adv --keyserver pgp.mit.edu' \
                    ' wheezy main"' \
                    ' | sudo tee /etc/apt/sources.list.d/mono-xamarin.list;' \
                    'sudo apt-get update;' \
-                   'sudo apt-get dist-upgrade;' \
-                   'sudo apt-get install mono-complete -y'                   
+                   'sudo apt-get dist-upgrade -y;' \
+                   'sudo apt-get install mono-complete -y'
+
+# Install latest kvm
+install_kvm_cmd = 'sudo apt-get install unzip -y;' \
+                  ' curl -sSL https://raw.githubusercontent.com/aspnet/Home/master/kvminstall.sh' \
+                  ' | sh && source ~vagrant/.kre/kvm/kvm.sh;' \
+                  'kvm upgrade'
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.box = "ubuntu/trusty64"
-  config.vm.provision "shell", inline: set_timezone_cmd
-  config.vm.provision "shell", inline: install_mono_cmd
+  config.vm.provision "set_timezone", type: "shell", privileged: false,
+    inline: set_timezone_cmd
+  config.vm.provision "install_mono", type: "shell", privileged: false,
+    inline: install_mono_cmd
+  config.vm.provision "install_kvm", type: "shell", privileged: false,
+    inline: install_kvm_cmd
 end
