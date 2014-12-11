@@ -24,6 +24,7 @@ box and installs all dependencies for running ASP.NET vNext applications.
 
 * Get box `ubuntu/trusty64`
 * Set box timezone to local timezone [source](https://help.ubuntu.com/community/UbuntuTime#Using_the_Command_Line_.28terminal.29)
+* Install libuv for Kestrel from source code [source](https://github.com/aspnet/aspnet-docker/blob/master/1.0.0-beta1/Dockerfile#L12-L23)
 * Import Mozilla’s list of trusted certificates [source](http://www.mono-project.com/docs/getting-started/install/linux/#notes)
 * Install Mono [source](http://www.mono-project.com/docs/getting-started/install/linux/#debian-ubuntu-and-derivatives)
 * Install K Runtime Environment [source](https://github.com/aspnet/home#linux)
