@@ -6,6 +6,8 @@ Lets tryout ASP.NET vNext in an ubuntu 14.04 Vagrantbox.
 This Vagrant file gets the latest Official Ubuntu Server 14.04 LTS (Trusty Tahr)
 box and installs all dependencies for running ASP.NET vNext applications.
 
+See it in action: https://www.youtube.com/watch?v=Mtfl2HFSvLI.
+
 ## Up and Running
 
 * Install [VirtualBox](https://www.virtualbox.org/wiki/Downloads)
