@@ -30,11 +30,13 @@ install_kvm_cmd = 'sudo apt-get install unzip -y;' \
                   'kvm upgrade'
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
-  config.vm.box = "ubuntu/trusty64"
-  config.vm.provision "set_timezone", type: "shell", privileged: false,
-    inline: set_timezone_cmd
-  config.vm.provision "install_mono", type: "shell", privileged: false,
-    inline: install_mono_cmd
-  config.vm.provision "install_kvm", type: "shell", privileged: false,
-    inline: install_kvm_cmd
+    config.vm.box = "ubuntu/trusty64"
+    config.vm.provision "set_timezone", type: "shell", privileged: false,
+        inline: set_timezone_cmd
+    config.vm.provision "install_mono", type: "shell", privileged: false,
+        inline: install_mono_cmd
+    config.vm.provision "mozroots", type: "shell", privileged: false,
+        inline: 'mozroots --import --sync'
+    config.vm.provision "install_kvm", type: "shell", privileged: false,
+        inline: install_kvm_cmd
 end
