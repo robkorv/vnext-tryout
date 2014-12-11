@@ -14,6 +14,7 @@ See it in action: https://www.youtube.com/watch?v=Mtfl2HFSvLI.
 * Install [Vagrant](http://www.vagrantup.com/downloads)
 * Clone this repo
 * Use `vagrant up` in a terminal from the root of this repo
+* Use `vagrant ssh` to get in the box
 
 ## Shutting Down
 
