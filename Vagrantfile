@@ -40,6 +40,9 @@ install_libuv_cmd = 'sudo apt-get install autoconf automake build-essential' \
                     ' sudo make install && sudo rm -rf /usr/local/src/libuv-$LIBUV_VERSION' \
                     ' && sudo ldconfig'
 
+# Install git
+install_git_cmd = 'sudo apt-get install git -y'
+
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     config.vm.box = "ubuntu/trusty64"
     config.vm.provision "set_timezone", type: "shell", privileged: false,
@@ -52,4 +55,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
         inline: 'mozroots --import --sync'
     config.vm.provision "install_kvm", type: "shell", privileged: false,
         inline: install_kvm_cmd
+    config.vm.provision "install_git", type: "shell", privileged: false,
+        inline: install_git_cmd
 end
